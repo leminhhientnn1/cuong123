@@ -3,904 +3,257 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+
   <title>FinCompare — So sánh giải pháp tài chính online</title>
-  <meta name="description" content="So sánh các giải pháp tài chính online: Finpug, Credy, CashOnline, Credilo, Creditnice, Cashspace, Finloo. Chọn nhanh — đăng ký dễ — minh bạch thông tin." />
+  <meta name="description" content="So sánh các giải pháp tài chính online. Chọn nhanh — đăng ký dễ — minh bạch thông tin. FinCompare tổng hợp & điều hướng đến đối tác." />
   <meta name="robots" content="index,follow" />
+
+  <!-- DOMAIN -->
+  <link rel="canonical" href="http://fincompare.io.vn/" />
+
+  <!-- SEO Social -->
   <meta property="og:title" content="FinCompare — So sánh giải pháp tài chính online" />
   <meta property="og:description" content="Chọn nhanh — đăng ký dễ — minh bạch thông tin." />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="http://fincompare.io.vn/" />
+  <meta property="og:image" content="http://fincompare.io.vn/og.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <meta name="theme-color" content="#0b1220" />
+
+  <link rel="icon" href="favicon.png" />
 
   <style>
     :root{
-      --bg:#0b1220;
-      --card:#0f1a2e;
-      --text:#e7eefc;
-      --muted:#a7b4d0;
-      --border:rgba(255,255,255,.08);
-      --shadow: 0 16px 40px rgba(0,0,0,.35);
-      --primary:#59f1c7;
-      --primary2:#7aa7ff;
-      --ring: rgba(89,241,199,.25);
-      --radius:18px;
-      --max:1120px;
-      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      --bg:#0b1220;--card:#0f1a2e;--text:#e7eefc;--muted:#a7b4d0;
+      --border:rgba(255,255,255,.10);--shadow:0 16px 40px rgba(0,0,0,.35);
+      --primary:#59f1c7;--primary2:#7aa7ff;--ring:rgba(89,241,199,.25);
+      --radius:18px;--max:1120px;
+      --font:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
     }
-    [data-theme="light"]{
-      --bg:#f6f8ff;
-      --card:#ffffff;
-      --text:#0a1220;
-      --muted:#44536b;
-      --border:rgba(10,18,32,.10);
-      --shadow: 0 16px 40px rgba(10,18,32,.10);
-      --ring: rgba(122,167,255,.25);
-    }
-
     *{box-sizing:border-box}
-    html,body{height:100%}
     body{
-      margin:0;
-      font-family:var(--font);
+      margin:0; font-family:var(--font);
       background:
         radial-gradient(900px 450px at 15% 10%, rgba(122,167,255,.15), transparent 60%),
         radial-gradient(900px 450px at 85% 10%, rgba(89,241,199,.12), transparent 60%),
         var(--bg);
       color:var(--text);
     }
-    a{color:inherit; text-decoration:none}
-    img{max-width:100%; display:block}
-    .container{max-width:var(--max); margin:0 auto; padding:0 18px}
-    .row{display:flex; gap:16px; flex-wrap:wrap}
-    .grid{display:grid; grid-template-columns: repeat(12, 1fr); gap:16px}
+    a{text-decoration:none;color:inherit}
+    .container{max-width:var(--max);margin:0 auto;padding:0 18px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      padding:12px 16px;border-radius:12px;border:1px solid var(--border);
+      cursor:pointer;font-weight:700;background:rgba(255,255,255,.04);
+      transition:.18s;
+    }
+    .btn.primary{
+      background:linear-gradient(90deg,var(--primary),var(--primary2));
+      color:#05101c;border:none;
+    }
+    .btn:hover{transform:translateY(-1px);box-shadow:0 10px 24px rgba(0,0,0,.18)}
     .card{
       background:linear-gradient(180deg, rgba(255,255,255,.04), transparent 28%), var(--card);
-      border:1px solid var(--border);
-      border-radius:var(--radius);
+      border:1px solid var(--border);border-radius:var(--radius);
       box-shadow:var(--shadow);
     }
-    .badge{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:8px 12px;
-      border:1px solid var(--border);
-      border-radius:999px;
-      color:var(--muted);
-      background:rgba(255,255,255,.03);
-      font-size:13px;
-      white-space:nowrap;
-    }
-    .kbd{
-      font-size:12px; color:var(--muted);
-      border:1px solid var(--border);
-      border-bottom-width:2px;
-      padding:2px 8px;
-      border-radius:10px;
-      background:rgba(255,255,255,.03);
-    }
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      gap:10px;
-      padding:12px 16px;
-      border-radius:12px;
-      border:1px solid var(--border);
-      cursor:pointer;
-      transition:.18s ease;
-      font-weight:650;
-      background:rgba(255,255,255,.04);
-      user-select:none;
-    }
-    .btn:hover{transform:translateY(-1px); box-shadow:0 10px 24px rgba(0,0,0,.18)}
-    .btn:active{transform:translateY(0)}
-    .btn.primary{
-      background:linear-gradient(90deg, rgba(89,241,199,.95), rgba(122,167,255,.95));
-      color:#05101c;
-      border:none;
-    }
-    .btn.ghost{background:transparent}
-    .btn:focus{outline:none; box-shadow:0 0 0 4px var(--ring)}
 
-    /* NAV */
-    .nav{
-      position:sticky; top:0; z-index:30;
+    header{
+      position:sticky;top:0;z-index:10;
       backdrop-filter: blur(10px);
-      background: rgba(10,18,32,.35);
+      background: rgba(10,18,32,.45);
       border-bottom:1px solid var(--border);
     }
-    [data-theme="light"] .nav{background: rgba(246,248,255,.75)}
-    .nav-inner{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
-    .brand{display:flex; align-items:center; gap:12px; font-weight:800; letter-spacing:.2px}
+    .nav{display:flex;justify-content:space-between;align-items:center;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:10px}
     .logo{
-      width:38px; height:38px; border-radius:12px;
-      border:1px solid var(--border);
-      background:linear-gradient(135deg, rgba(89,241,199,.24), rgba(122,167,255,.25));
-      display:grid; place-items:center;
-      font-weight:900;
-      color:#071426;
+      width:38px;height:38px;border-radius:12px;
+      background:linear-gradient(135deg,var(--primary),var(--primary2));
+      display:grid;place-items:center;font-weight:900;color:#05101c;
     }
-    .brand small{display:block; font-weight:600; color:var(--muted); margin-top:2px}
-    .nav-links{display:flex; align-items:center; gap:12px; flex-wrap:wrap}
-    .nav-links a{
-      padding:10px 12px;
-      border-radius:12px;
-      color:var(--muted);
-      border:1px solid transparent;
-    }
-    .nav-links a:hover{color:var(--text); border-color:var(--border); background:rgba(255,255,255,.03)}
-    .nav-cta{display:flex; gap:10px; align-items:center}
+    .small{font-size:13px;color:var(--muted)}
 
-    /* HERO */
-    .hero{padding:44px 0 16px}
+    .hero{padding:44px 0 10px}
     .hero .wrap{
-      padding:26px;
-      border-radius: calc(var(--radius) + 8px);
-      border:1px solid var(--border);
+      padding:24px;border-radius:22px;border:1px solid var(--border);
       background:
         radial-gradient(600px 280px at 12% 0%, rgba(89,241,199,.14), transparent 60%),
         radial-gradient(600px 280px at 88% 0%, rgba(122,167,255,.14), transparent 60%),
         linear-gradient(180deg, rgba(255,255,255,.05), transparent 40%),
         var(--card);
-      box-shadow: var(--shadow);
+      box-shadow:var(--shadow);
     }
-    .hero h1{margin:12px 0 0; font-size:38px; line-height:1.1; letter-spacing:-.5px}
-    .hero p{margin:12px 0 0; color:var(--muted); font-size:16px; line-height:1.6}
-    .hero .actions{margin-top:18px; display:flex; gap:12px; flex-wrap:wrap}
-    .hero .meta{margin-top:18px; display:flex; gap:10px; flex-wrap:wrap}
+    h1{margin:10px 0 0;font-size:36px;line-height:1.12}
+    p{color:var(--muted);line-height:1.7}
 
-    .section{padding:26px 0}
-    .section h2{margin:0 0 10px; font-size:22px}
-    .section p.lead{margin:0 0 18px; color:var(--muted); line-height:1.7}
-
-    .feature{
-      padding:18px;
-      border-radius:var(--radius);
-      border:1px solid var(--border);
-      background:rgba(255,255,255,.03);
-    }
-    .feature h3{margin:0 0 6px; font-size:16px}
-    .feature p{margin:0; color:var(--muted); line-height:1.6; font-size:14px}
-
-    /* OFFERS */
-    .toolbar{
-      display:flex; gap:12px; flex-wrap:wrap;
-      align-items:center; justify-content:space-between;
-      margin-bottom:14px;
-    }
-    .search{
-      flex:1;
-      min-width:220px;
-      display:flex; align-items:center; gap:10px;
-      padding:12px 14px;
-      border-radius:14px;
-      border:1px solid var(--border);
-      background:rgba(255,255,255,.03);
-    }
-    .search input{
-      width:100%;
-      border:none; outline:none;
-      background:transparent;
-      color:var(--text);
-      font-size:14px;
-    }
-    .search input::placeholder{color:rgba(167,180,208,.75)}
-    .select{
-      padding:12px 14px;
-      border-radius:14px;
-      border:1px solid var(--border);
-      background:rgba(255,255,255,.03);
-      color:var(--text);
-      min-width:190px;
-    }
-    .offer-grid{
-      display:grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap:16px;
-    }
+    .section{padding:24px 0}
+    .offers{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
     .offer{
-      grid-column: span 4;
-      padding:16px;
-      border-radius:var(--radius);
-      border:1px solid var(--border);
-      background:linear-gradient(180deg, rgba(255,255,255,.04), transparent 28%), rgba(255,255,255,.02);
-      position:relative;
-      overflow:hidden;
-    }
-    .offer::before{
-      content:"";
-      position:absolute; inset:-2px;
-      background: radial-gradient(220px 120px at 25% 0%, rgba(89,241,199,.16), transparent 60%),
-                  radial-gradient(220px 120px at 75% 0%, rgba(122,167,255,.14), transparent 60%);
-      opacity:.8; pointer-events:none;
-    }
-    .offer > *{position:relative}
-    .offer-top{display:flex; gap:12px; align-items:center}
-    .offer-logo{
-      width:44px; height:44px; border-radius:14px;
-      border:1px solid var(--border);
-      background:rgba(255,255,255,.05);
-      display:grid; place-items:center;
-      font-weight:900;
-    }
-    .offer h3{margin:0; font-size:16px}
-    .offer .sub{margin:4px 0 0; color:var(--muted); font-size:13px; line-height:1.5}
-    .offer .tags{margin-top:12px; display:flex; gap:8px; flex-wrap:wrap}
-    .tag{
-      font-size:12px;
-      padding:6px 10px;
-      border-radius:999px;
-      border:1px solid var(--border);
-      color:var(--muted);
+      grid-column:span 4;
+      padding:16px;border-radius:18px;border:1px solid var(--border);
       background:rgba(255,255,255,.03);
     }
-    .offer .foot{
-      margin-top:14px;
-      display:flex; gap:10px; align-items:center; justify-content:space-between;
-    }
-    .small{font-size:13px; color:var(--muted); line-height:1.7}
-    .hr{height:1px; background:var(--border); margin:14px 0}
-    .note{
-      padding:12px 14px;
-      border-radius:14px;
-      border:1px solid var(--border);
-      background:rgba(255,255,255,.03);
-      color:var(--muted);
-    }
+    .offer h3{margin:0}
+    .tags{margin-top:10px;display:flex;gap:8px;flex-wrap:wrap}
+    .tag{font-size:12px;border:1px solid var(--border);padding:6px 10px;border-radius:999px;color:var(--muted);background:rgba(255,255,255,.03)}
+    .meta{margin-top:12px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
 
-    /* FOOTER */
-    .footer{padding:28px 0 40px; color:var(--muted)}
-    .footer .cols{display:grid; grid-template-columns: 2fr 1fr 1fr; gap:16px}
-    .footer a{color:var(--muted)}
-    .footer a:hover{color:var(--text)}
-    .footer .fineprint{margin-top:14px; font-size:12px; line-height:1.6; opacity:.95}
+    footer{padding:36px 0 44px;color:var(--muted);font-size:13px}
 
-    /* MODAL */
-    .modal-backdrop{
-      position:fixed; inset:0;
-      background: rgba(0,0,0,.55);
-      display:none;
-      align-items:center;
-      justify-content:center;
-      padding:18px;
-      z-index:60;
-    }
-    .modal{
-      width:min(880px, 100%);
-      border-radius: calc(var(--radius) + 6px);
-      border:1px solid var(--border);
-      background:
-        radial-gradient(600px 260px at 15% 0%, rgba(89,241,199,.14), transparent 60%),
-        radial-gradient(600px 260px at 85% 0%, rgba(122,167,255,.14), transparent 60%),
-        linear-gradient(180deg, rgba(255,255,255,.05), transparent 40%),
-        var(--card);
-      box-shadow: var(--shadow);
-      overflow:hidden;
-    }
-    .modal-head{
-      padding:16px 16px 10px;
-      display:flex; align-items:flex-start; justify-content:space-between; gap:12px;
-      border-bottom:1px solid var(--border);
-    }
-    .modal-body{padding:16px}
-    .modal-title{margin:0; font-size:18px}
-    .modal-desc{margin:8px 0 0; color:var(--muted); line-height:1.6}
-    .modal-meta{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
-    .modal-actions{display:flex; gap:12px; flex-wrap:wrap; justify-content:flex-end; margin-top:14px}
-
-    @media (max-width: 980px){
-      .offer{grid-column: span 6}
-      .footer .cols{grid-template-columns: 1fr}
-      .hero h1{font-size:32px}
-    }
-    @media (max-width: 560px){
-      .offer{grid-column: span 12}
-      .nav-links{display:none}
-      .hero .wrap{padding:18px}
-    }
+    @media(max-width:980px){.offer{grid-column:span 6}h1{font-size:30px}}
+    @media(max-width:560px){.offer{grid-column:span 12}}
   </style>
-
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Organization",
-    "name":"FinCompare",
-    "url":"",
-    "sameAs":[]
-  }
-  </script>
 </head>
 
 <body>
-  <!-- NAV -->
-  <header class="nav">
-    <div class="container nav-inner">
-      <a class="brand" href="#top" aria-label="FinCompare Home">
-        <span class="logo" aria-hidden="true">F</span>
-        <span>
-          FinCompare
-          <small>So sánh • Chọn nhanh • Minh bạch</small>
-        </span>
-      </a>
 
-      <nav class="nav-links" aria-label="Primary">
-        <a href="#offers">Offers</a>
-        <a href="#faq">FAQ</a>
-        <a href="#about">Về chúng tôi</a>
-        <a href="#contact">Liên hệ</a>
-      </nav>
-
-      <div class="nav-cta">
-        <button class="btn" id="themeBtn" aria-label="Đổi giao diện">🌓 <span class="kbd">T</span></button>
-        <a class="btn primary" href="#offers">Xem offers</a>
+<header>
+  <div class="container nav">
+    <div class="brand">
+      <div class="logo">F</div>
+      <div>
+        <b>FinCompare</b><br>
+        <span class="small">So sánh • Chọn nhanh • Minh bạch</span>
       </div>
     </div>
-  </header>
+    <a class="btn primary" href="#offers">Xem offers</a>
+  </div>
+</header>
 
-  <!-- HERO -->
-  <main id="top">
-    <section class="hero">
-      <div class="container">
-        <div class="wrap">
-          <div class="badge">✅ Nền tảng tổng hợp • 🔒 Bảo mật SSL • 📱 Tối ưu mobile</div>
-          <h1>So sánh & chọn giải pháp tài chính online<br/>nhanh, rõ ràng, đáng tin.</h1>
-          <p>
-            Chúng tôi tổng hợp nhiều đối tác để bạn dễ so sánh. Chọn lựa dựa trên thông tin minh bạch,
-            quy trình rõ ràng và trải nghiệm mượt trên điện thoại.
-          </p>
+<main id="top">
 
-          <div class="actions">
-            <a class="btn primary" href="#offers">Bắt đầu so sánh</a>
-            <a class="btn ghost" href="#about">Tìm hiểu thêm</a>
-            <a class="btn" href="#contact">Hỗ trợ</a>
-          </div>
-
-          <div class="meta">
-            <span class="badge">⚡ Duyệt nhanh (tuỳ đối tác)</span>
-            <span class="badge">🧾 Hướng dẫn hồ sơ chi tiết</span>
-            <span class="badge">📌 Không thu phí truy cập</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FEATURES -->
-    <section class="section">
-      <div class="container">
-        <h2>Vì sao website này nhìn “uy tín” như công ty?</h2>
-        <p class="lead">Bố cục rõ ràng, legal pages đầy đủ, CTA hợp lý, tối ưu tốc độ và trải nghiệm.</p>
-
-        <div class="grid">
-          <div class="feature" style="grid-column: span 4;">
-            <h3>Thiết kế chuẩn doanh nghiệp</h3>
-            <p>Header/hero/sections cân đối, màu sắc hài hoà, typography dễ đọc.</p>
-          </div>
-          <div class="feature" style="grid-column: span 4;">
-            <h3>Đầy đủ Privacy/Terms</h3>
-            <p>Tăng độ tin cậy & giảm rủi ro khi chạy traffic/SEO.</p>
-          </div>
-          <div class="feature" style="grid-column: span 4;">
-            <h3>Funnel rõ ràng</h3>
-            <p>So sánh → đọc chi tiết → click đăng ký, giúp CR tốt hơn.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- OFFERS -->
-    <section class="section" id="offers">
-      <div class="container">
-        <h2>Offers</h2>
-        <p class="lead">Tìm kiếm nhanh <span class="kbd">/</span>, lọc theo tag, bấm “Chi tiết” để xem mô tả + lưu ý.</p>
-
-        <div class="toolbar">
-          <div class="search">
-            🔎 <input id="search" placeholder="Tìm theo tên hoặc tag (ví dụ: nhanh, uy tín)..." />
-            <span class="kbd">/</span>
-          </div>
-
-          <select id="category" class="select">
-            <option value="all">Tất cả</option>
-            <option value="nhanh">Nhanh</option>
-            <option value="uy tín">Uy tín</option>
-            <option value="online">Online</option>
-            <option value="hỗ trợ">Hỗ trợ</option>
-            <option value="minh bạch">Minh bạch</option>
-          </select>
-        </div>
-
-        <div id="offersMount" class="offer-grid"></div>
-
-        <div class="note" style="margin-top:16px;">
-          Lưu ý: Website chỉ tổng hợp thông tin. Điều kiện/chi phí phụ thuộc từng đối tác và có thể thay đổi theo thời điểm.
-        </div>
-      </div>
-    </section>
-
-    <!-- TRUST CTA -->
-    <section class="section">
-      <div class="container">
-        <div class="card" style="padding:18px;">
-          <div class="row" style="align-items:center; justify-content:space-between;">
-            <div>
-              <h2 style="margin:0 0 6px;">Cần tư vấn chọn nhanh?</h2>
-              <div class="small">Gửi câu hỏi, chúng tôi sẽ phản hồi hướng dẫn trong thời gian sớm nhất.</div>
-            </div>
-            <div class="row" style="gap:12px;">
-              <a class="btn" href="#faq">Xem FAQ</a>
-              <a class="btn primary" href="#contact">Liên hệ hỗ trợ</a>
-            </div>
-          </div>
-          <div class="hr"></div>
-          <div class="note">
-            FinCompare không phải đơn vị cho vay. Khi bấm “Đăng ký”, bạn sẽ chuyển sang website đối tác.
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section class="section" id="about">
-      <div class="container">
-        <h2>Về FinCompare</h2>
-        <p class="lead">Trải nghiệm “chọn nhanh, đọc dễ, rõ ràng” để người dùng so sánh giải pháp tài chính online.</p>
-
-        <div class="card" style="padding:18px;">
-          <div class="grid">
-            <div style="grid-column: span 6;">
-              <h3 style="margin:0 0 8px;">Sứ mệnh</h3>
-              <p class="small" style="margin:0;">
-                Giúp người dùng tiếp cận thông tin theo cách minh bạch, giảm thời gian tìm kiếm và tăng khả năng chọn đúng nhu cầu.
-              </p>
-            </div>
-            <div style="grid-column: span 6;">
-              <h3 style="margin:0 0 8px;">Cách hoạt động</h3>
-              <ul class="small" style="margin:0; padding-left:18px;">
-                <li>Tổng hợp & trình bày thông tin offer theo cấu trúc dễ hiểu.</li>
-                <li>Điều hướng sang đối tác khi người dùng muốn đăng ký.</li>
-                <li>Không thu phí truy cập website.</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="hr"></div>
-          <div class="note">
-            Nếu bạn chạy ads/SEO lớn, bạn có thể mở rộng Privacy/Terms chi tiết hơn theo nhu cầu compliance.
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="section" id="faq">
-      <div class="container">
-        <h2>FAQ</h2>
-        <p class="lead">Một số câu hỏi phổ biến về cách website hoạt động và lưu ý an toàn.</p>
-
-        <div class="card" style="padding:18px;">
-          <div class="grid">
-            <div style="grid-column: span 6;">
-              <h3 style="margin:0 0 8px;">FinCompare có phải đơn vị cho vay không?</h3>
-              <p class="small" style="margin:0;">Không. Chúng tôi chỉ tổng hợp thông tin và điều hướng đến đối tác.</p>
-
-              <div style="height:14px"></div>
-
-              <h3 style="margin:0 0 8px;">Tôi có phải trả phí khi dùng website không?</h3>
-              <p class="small" style="margin:0;">Không. Bạn có thể xem thông tin và so sánh miễn phí.</p>
-            </div>
-
-            <div style="grid-column: span 6;">
-              <h3 style="margin:0 0 8px;">Làm sao để an toàn khi đăng ký?</h3>
-              <ul class="small" style="margin:0; padding-left:18px;">
-                <li>Chỉ nhập thông tin trên trang đối tác sau khi bấm “Đăng ký”.</li>
-                <li>Đọc kỹ điều khoản trước khi gửi hồ sơ.</li>
-                <li>Không chia sẻ OTP/mật khẩu cho bất kỳ ai.</li>
-              </ul>
-
-              <div style="height:14px"></div>
-
-              <h3 style="margin:0 0 8px;">Điều kiện/chi phí có cố định không?</h3>
-              <p class="small" style="margin:0;">Không. Tùy đối tác và có thể thay đổi theo thời điểm/hồ sơ.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section class="section" id="contact">
-      <div class="container">
-        <h2>Liên hệ</h2>
-        <p class="lead">Form demo (bạn có thể nối backend/email sau). Hiện tại bấm “Gửi” sẽ hiện thông báo.</p>
-
-        <div class="card" style="padding:18px;">
-          <form id="contactForm">
-            <div class="grid">
-              <div style="grid-column: span 6;">
-                <div class="small">Họ tên</div>
-                <div class="search" style="margin-top:8px;">
-                  👤 <input required name="name" placeholder="Nguyễn Văn A" />
-                </div>
-              </div>
-              <div style="grid-column: span 6;">
-                <div class="small">Email</div>
-                <div class="search" style="margin-top:8px;">
-                  ✉️ <input required type="email" name="email" placeholder="you@email.com" />
-                </div>
-              </div>
-              <div style="grid-column: span 12;">
-                <div class="small">Nội dung</div>
-                <div class="search" style="margin-top:8px; align-items:flex-start;">
-                  📝
-                  <textarea required name="message" placeholder="Mô tả yêu cầu của bạn..." style="width:100%; min-height:120px; border:none; outline:none; background:transparent; color:var(--text); font-size:14px; resize:vertical;"></textarea>
-                </div>
-              </div>
-            </div>
-
-            <div class="row" style="justify-content:space-between; align-items:center; margin-top:14px;">
-              <div class="small">
-                Bằng việc gửi, bạn đồng ý với <a href="#terms" style="text-decoration:underline;">Terms</a> và <a href="#privacy" style="text-decoration:underline;">Privacy</a>.
-              </div>
-              <button class="btn primary" type="submit">Gửi yêu cầu</button>
-            </div>
-          </form>
-
-          <div class="hr"></div>
-          <div class="note">
-            Tip: Bạn có thể dùng Formspree / Google Apps Script để nhận email mà không cần backend.
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PRIVACY -->
-    <section class="section" id="privacy">
-      <div class="container">
-        <h2>Privacy Policy</h2>
-        <p class="lead">Mẫu đơn giản để tăng độ tin cậy (bạn có thể mở rộng theo compliance).</p>
-
-        <div class="card" style="padding:18px;">
-          <p class="small" style="margin:0;">
-            FinCompare tôn trọng quyền riêng tư của người dùng. Website chủ yếu cung cấp nội dung tổng hợp và điều hướng sang đối tác.
-          </p>
-          <div class="hr"></div>
-          <h3 style="margin:0 0 8px;">Dữ liệu chúng tôi thu thập</h3>
-          <ul class="small" style="margin:0; padding-left:18px;">
-            <li>Dữ liệu kỹ thuật cơ bản: trình duyệt, thiết bị, trang đã xem (phục vụ thống kê).</li>
-            <li>Cookies/analytics (nếu bạn bật).</li>
-          </ul>
-          <div style="height:14px"></div>
-          <h3 style="margin:0 0 8px;">Dữ liệu do đối tác thu thập</h3>
-          <p class="small" style="margin:0;">
-            Khi bạn bấm “Đăng ký”, bạn rời FinCompare và truy cập website đối tác. Dữ liệu bạn nhập ở đó thuộc phạm vi của đối tác.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- TERMS -->
-    <section class="section" id="terms">
-      <div class="container">
-        <h2>Terms of Service</h2>
-        <p class="lead">Điều khoản sử dụng cơ bản.</p>
-
-        <div class="card" style="padding:18px;">
-          <h3 style="margin:0 0 8px;">Phạm vi</h3>
-          <p class="small" style="margin:0;">FinCompare cung cấp thông tin tổng hợp và điều hướng đến đối tác. Chúng tôi không phải đơn vị cho vay.</p>
-          <div style="height:14px"></div>
-          <h3 style="margin:0 0 8px;">Miễn trừ trách nhiệm</h3>
-          <ul class="small" style="margin:0; padding-left:18px;">
-            <li>Điều kiện/chi phí và quyết định phê duyệt phụ thuộc đối tác.</li>
-            <li>Người dùng tự chịu trách nhiệm khi cung cấp thông tin trên trang đối tác.</li>
-          </ul>
-          <div style="height:14px"></div>
-          <h3 style="margin:0 0 8px;">Hành vi bị cấm</h3>
-          <ul class="small" style="margin:0; padding-left:18px;">
-            <li>Spam, tấn công hoặc khai thác lỗ hổng website.</li>
-            <li>Sao chép nội dung nhằm gây nhầm lẫn thương hiệu.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container">
-      <div class="cols">
-        <div>
-          <div class="brand" style="gap:10px;">
-            <span class="logo" style="width:34px;height:34px;" aria-hidden="true">F</span>
-            <span>FinCompare</span>
-          </div>
-          <p class="fineprint">
-            FinCompare là nền tảng tổng hợp thông tin và điều hướng đến đối tác. Chúng tôi không phải đơn vị cho vay.
-            Vui lòng đọc kỹ điều khoản và chính sách trên trang đối tác trước khi đăng ký.
-          </p>
-        </div>
-        <div>
-          <b style="color:var(--text)">Company</b>
-          <div style="height:10px"></div>
-          <div class="row" style="gap:10px; flex-direction:column;">
-            <a href="#about">Về chúng tôi</a>
-            <a href="#contact">Liên hệ</a>
-            <a href="#faq">FAQ</a>
-          </div>
-        </div>
-        <div>
-          <b style="color:var(--text)">Legal</b>
-          <div style="height:10px"></div>
-          <div class="row" style="gap:10px; flex-direction:column;">
-            <a href="#privacy">Privacy Policy</a>
-            <a href="#terms">Terms of Service</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="hr"></div>
-      <div class="fineprint">© <span id="y"></span> FinCompare. All rights reserved.</div>
-    </div>
-  </footer>
-
-  <!-- MODAL -->
-  <div class="modal-backdrop" id="modalBackdrop" role="dialog" aria-modal="true" aria-label="Chi tiết offer">
-    <div class="modal">
-      <div class="modal-head">
-        <div>
-          <div class="badge" id="modalBadge">🎯 Chi tiết offer</div>
-          <h3 class="modal-title" id="modalTitle">Offer</h3>
-          <p class="modal-desc" id="modalDesc">Mô tả</p>
-          <div class="modal-meta" id="modalMeta"></div>
-        </div>
-        <button class="btn" id="modalCloseBtn" aria-label="Đóng">✕</button>
-      </div>
-      <div class="modal-body">
-        <h3 style="margin:0 0 8px;">Điểm nổi bật</h3>
-        <ul class="small" style="margin:0; padding-left:18px;" id="modalBullets"></ul>
-
-        <div class="hr"></div>
-
-        <div class="note">
-          FinCompare chỉ tổng hợp & điều hướng. Khi bấm “Đăng ký”, bạn sẽ sang website đối tác.
-        </div>
-
-        <div class="modal-actions">
-          <button class="btn" id="modalBackBtn">Đóng</button>
-          <a class="btn primary" id="modalCta" href="#" target="_blank" rel="nofollow sponsored noopener">Đăng ký</a>
-        </div>
+<section class="hero">
+  <div class="container">
+    <div class="wrap card">
+      <div class="small">✅ Nền tảng tổng hợp • 🔒 SSL • 📱 Tối ưu mobile</div>
+      <h1>So sánh & chọn giải pháp tài chính online<br>nhanh, rõ ràng, đáng tin.</h1>
+      <p>
+        FinCompare tổng hợp thông tin và điều hướng đến website đối tác.
+        Điều kiện, chi phí và quyết định phê duyệt phụ thuộc từng đối tác.
+      </p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:14px">
+        <a class="btn primary" href="#offers">Bắt đầu so sánh</a>
+        <a class="btn" href="#legal">Điều khoản</a>
       </div>
     </div>
   </div>
+</section>
 
-  <script>
-    // ====== THEME ======
-    (function(){
-      const key = "site_theme";
-      const saved = localStorage.getItem(key);
-      const prefersLight = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches;
-      const theme = saved || (prefersLight ? "light" : "dark");
-      document.documentElement.setAttribute("data-theme", theme);
+<section class="section" id="offers">
+  <div class="container">
+    <h2 style="margin:0 0 10px">Offers</h2>
+    <p style="margin:0 0 16px" class="small">
+      Bấm “Đăng ký” để mở trực tiếp website đối tác (affiliate link).
+    </p>
 
-      function toggleTheme(){
-        const cur = document.documentElement.getAttribute("data-theme") || "dark";
-        const next = (cur === "dark") ? "light" : "dark";
-        document.documentElement.setAttribute("data-theme", next);
-        localStorage.setItem(key, next);
-      }
-      window.toggleTheme = toggleTheme;
+    <div class="offers">
 
-      document.getElementById("themeBtn").addEventListener("click", toggleTheme);
-      window.addEventListener("keydown", (e)=>{ if(e.key.toLowerCase()==="t") toggleTheme(); });
-    })();
+      <!-- Mazila -->
+      <article class="offer">
+        <h3>Mazila</h3>
+        <p class="small">Giải pháp tài chính online, thao tác nhanh, rõ ràng.</p>
+        <div class="tags"><span class="tag">Online</span><span class="tag">Nhanh</span><span class="tag">Uy tín</span></div>
+        <div class="meta">
+          <span class="small">⏱️ 5–15 phút</span>
+          <a class="btn primary" target="_blank" rel="nofollow sponsored noopener"
+             href="https://rdr.pdlsd.net/in/offer/2930?aid=111979">Đăng ký</a>
+        </div>
+      </article>
 
-    // ====== OFFERS DATA (SỬA TRACKING LINK Ở ĐÂY) ======
-    const OFFERS = [
-      {
-        id: "finpug",
-        name: "Finpug",
-        short: "Giải pháp tài chính nhanh, quy trình đơn giản, hỗ trợ trực tuyến.",
-        tags: ["Online", "Nhanh", "Uy tín"],
-        apr: "Tuỳ hồ sơ",
-        time: "5–15 phút",
-        url: "https://example.com/track?offer=finpug", // <-- THAY LINK
-        bullets: [
-          "Form đơn giản, thao tác nhanh trên mobile.",
-          "Hướng dẫn rõ ràng theo từng bước.",
-          "Theo dõi trạng thái minh bạch (tuỳ đối tác)."
-        ]
-      },
-      {
-        id: "credy",
-        name: "Credy",
-        short: "Đăng ký dễ, duyệt nhanh, phù hợp nhu cầu ngắn hạn.",
-        tags: ["Duyệt nhanh", "Online", "Hỗ trợ"],
-        apr: "Tuỳ hồ sơ",
-        time: "5–10 phút",
-        url: "https://example.com/track?offer=credy",
-        bullets: [
-          "Trải nghiệm mượt, tối ưu cho điện thoại.",
-          "Nộp hồ sơ nhanh — kết quả tuỳ đối tác.",
-          "Hỗ trợ theo hướng dẫn."
-        ]
-      },
-      {
-        id: "cashonline",
-        name: "CashOnline",
-        short: "Hồ sơ gọn, thao tác nhanh, theo dõi trạng thái minh bạch.",
-        tags: ["Minh bạch", "Online", "Nhanh"],
-        apr: "Tuỳ hồ sơ",
-        time: "5–12 phút",
-        url: "https://example.com/track?offer=cashonline",
-        bullets: [
-          "Quy trình tinh gọn.",
-          "Hiển thị thông tin rõ ràng, dễ hiểu.",
-          "Phù hợp người dùng cần thao tác nhanh."
-        ]
-      },
-      {
-        id: "credilo",
-        name: "Credilo",
-        short: "Tối ưu tỉ lệ duyệt với form rõ ràng, quy trình mạch lạc.",
-        tags: ["Form rõ", "Nhanh", "Uy tín"],
-        apr: "Tuỳ hồ sơ",
-        time: "6–15 phút",
-        url: "https://example.com/track?offer=credilo",
-        bullets: [
-          "Form tối ưu, giảm thao tác thừa.",
-          "Quy trình mạch lạc, dễ làm theo.",
-          "Hỗ trợ thông tin theo từng bước."
-        ]
-      },
-      {
-        id: "creditnice",
-        name: "Creditnice",
-        short: "Lựa chọn linh hoạt, hướng dẫn chi tiết, giao diện thân thiện.",
-        tags: ["Linh hoạt", "Hướng dẫn", "Uy tín"],
-        apr: "Tuỳ hồ sơ",
-        time: "5–15 phút",
-        url: "https://example.com/track?offer=creditnice",
-        bullets: [
-          "Hướng dẫn chi tiết để giảm sai sót.",
-          "Giao diện thân thiện, dễ dùng.",
-          "Phù hợp nhiều nhu cầu khác nhau."
-        ]
-      },
-      {
-        id: "cashspace",
-        name: "Cashspace",
-        short: "Quy trình tinh gọn, theo dõi nhanh, trải nghiệm mượt.",
-        tags: ["Tinh gọn", "Online", "Nhanh"],
-        apr: "Tuỳ hồ sơ",
-        time: "5–10 phút",
-        url: "https://example.com/track?offer=cashspace",
-        bullets: [
-          "Tốc độ thao tác nhanh.",
-          "Giao diện mượt, ít bước.",
-          "Tối ưu trải nghiệm người dùng."
-        ]
-      },
-      {
-        id: "finloo",
-        name: "Finloo",
-        short: "Hỗ trợ nhanh, thao tác đơn giản, phù hợp nhiều nhu cầu.",
-        tags: ["Nhanh", "Hỗ trợ", "Uy tín"],
-        apr: "Tuỳ hồ sơ",
-        time: "5–15 phút",
-        url: "https://example.com/track?offer=finloo",
-        bullets: [
-          "Dễ đăng ký, thao tác đơn giản.",
-          "Hỗ trợ theo hướng dẫn.",
-          "Phù hợp nhiều nhóm người dùng."
-        ]
-      }
-    ];
+      <!-- Credy -->
+      <article class="offer">
+        <h3>Credy</h3>
+        <p class="small">Đăng ký dễ, duyệt nhanh, phù hợp nhu cầu ngắn hạn.</p>
+        <div class="tags"><span class="tag">Online</span><span class="tag">Nhanh</span><span class="tag">Hỗ trợ</span></div>
+        <div class="meta">
+          <span class="small">⏱️ 5–10 phút</span>
+          <a class="btn primary" target="_blank" rel="nofollow sponsored noopener"
+             href="https://rdr.pdlsd.net/in/offer/2988?aid=111979">Đăng ký</a>
+        </div>
+      </article>
 
-    // ====== RENDER / FILTER ======
-    const $ = (s, el=document)=> el.querySelector(s);
-    const $$ = (s, el=document)=> [...el.querySelectorAll(s)];
+      <!-- CashOnline -->
+      <article class="offer">
+        <h3>CashOnline</h3>
+        <p class="small">Hồ sơ gọn, thao tác nhanh, minh bạch.</p>
+        <div class="tags"><span class="tag">Online</span><span class="tag">Nhanh</span><span class="tag">Minh bạch</span></div>
+        <div class="meta">
+          <span class="small">⏱️ 5–12 phút</span>
+          <a class="btn primary" target="_blank" rel="nofollow sponsored noopener"
+             href="https://rdr.pdlsd.net/in/offer/8508?aid=111979">Đăng ký</a>
+        </div>
+      </article>
 
-    function renderOffers(list){
-      const mount = $("#offersMount");
-      mount.innerHTML = list.map(o => `
-        <article class="offer" data-name="${o.name.toLowerCase()}" data-tags="${o.tags.join(",").toLowerCase()}">
-          <div class="offer-top">
-            <div class="offer-logo" aria-hidden="true">${o.name.slice(0,1)}</div>
-            <div>
-              <h3>${o.name}</h3>
-              <div class="sub">${o.short}</div>
-            </div>
-          </div>
+      <!-- Credilo -->
+      <article class="offer">
+        <h3>Credilo</h3>
+        <p class="small">Form rõ ràng, quy trình mạch lạc.</p>
+        <div class="tags"><span class="tag">Online</span><span class="tag">Uy tín</span><span class="tag">Nhanh</span></div>
+        <div class="meta">
+          <span class="small">⏱️ 6–15 phút</span>
+          <a class="btn primary" target="_blank" rel="nofollow sponsored noopener"
+             href="https://rdr.pdlsd.net/in/offer/2929?aid=111979">Đăng ký</a>
+        </div>
+      </article>
 
-          <div class="tags">
-            ${o.tags.map(t => `<span class="tag">${t}</span>`).join("")}
-          </div>
+      <!-- CreditNice -->
+      <article class="offer">
+        <h3>CreditNice</h3>
+        <p class="small">Linh hoạt, hướng dẫn chi tiết, giao diện thân thiện.</p>
+        <div class="tags"><span class="tag">Online</span><span class="tag">Uy tín</span><span class="tag">Hỗ trợ</span></div>
+        <div class="meta">
+          <span class="small">⏱️ 5–15 phút</span>
+          <a class="btn primary" target="_blank" rel="nofollow sponsored noopener"
+             href="https://rdr.pdlsd.net/in/offer/6312?aid=111979">Đăng ký</a>
+        </div>
+      </article>
 
-          <div class="hr"></div>
+      <!-- Finloo -->
+      <article class="offer">
+        <h3>Finloo</h3>
+        <p class="small">Hỗ trợ nhanh, thao tác đơn giản.</p>
+        <div class="tags"><span class="tag">Online</span><span class="tag">Uy tín</span><span class="tag">Hỗ trợ</span></div>
+        <div class="meta">
+          <span class="small">⏱️ 5–15 phút</span>
+          <a class="btn primary" target="_blank" rel="nofollow sponsored noopener"
+             href="https://rdr.pdlsd.net/in/offer/2981?aid=111979">Đăng ký</a>
+        </div>
+      </article>
 
-          <div class="foot">
-            <div class="small">⏱️ ${o.time} · 📌 APR: ${o.apr}</div>
-            <div style="display:flex; gap:10px;">
-              <button class="btn ghost" data-detail="${o.id}">Chi tiết</button>
-              <a class="btn primary" href="${o.url}" target="_blank" rel="nofollow sponsored noopener">Đăng ký</a>
-            </div>
-          </div>
-        </article>
-      `).join("");
+    </div>
 
-      // bind detail buttons
-      $$("[data-detail]").forEach(btn=>{
-        btn.addEventListener("click", ()=>{
-          const id = btn.getAttribute("data-detail");
-          openOfferModal(id);
-        });
-      });
-    }
+    <div class="card" style="margin-top:16px;">
+      <p class="small" style="margin:0">
+        Lưu ý: FinCompare không phải đơn vị cho vay. Khi bấm “Đăng ký”, bạn sẽ chuyển sang website đối tác.
+      </p>
+    </div>
+  </div>
+</section>
 
-    function filterOffers(){
-      const query = ($("#search").value || "").trim().toLowerCase();
-      const cat = $("#category").value || "all";
-      const cards = $$(".offer");
+<section class="section" id="legal">
+  <div class="container">
+    <h2 style="margin:0 0 10px">Điều khoản & Chính sách</h2>
+    <div class="card">
+      <p class="small" style="margin:0">
+        FinCompare là website tổng hợp thông tin. Disclosure: website có thể nhận hoa hồng khi bạn đăng ký qua liên kết.
+        Điều kiện, chi phí và quyết định phê duyệt thuộc về đối tác.
+      </p>
+    </div>
+  </div>
+</section>
 
-      cards.forEach(c=>{
-        const name = c.dataset.name || "";
-        const tags = c.dataset.tags || "";
-        const matchQuery = !query || name.includes(query) || tags.includes(query);
-        const matchCat = (cat === "all") || tags.includes(cat);
-        c.style.display = (matchQuery && matchCat) ? "" : "none";
-      });
-    }
+</main>
 
-    // ====== MODAL ======
-    const modalBackdrop = $("#modalBackdrop");
-    const modalTitle = $("#modalTitle");
-    const modalDesc  = $("#modalDesc");
-    const modalMeta  = $("#modalMeta");
-    const modalBullets = $("#modalBullets");
-    const modalCta   = $("#modalCta");
+<footer>
+  <div class="container">
+    © <span id="y"></span> FinCompare — http://fincompare.io.vn
+  </div>
+</footer>
 
-    function openOfferModal(id){
-      const o = OFFERS.find(x=>x.id===id) || OFFERS[0];
-      modalTitle.textContent = o.name;
-      modalDesc.textContent = o.short;
-      modalMeta.innerHTML = `
-        <span class="badge">⏱️ Thời gian: <b style="color:var(--text)">${o.time}</b></span>
-        <span class="badge">📌 APR: <b style="color:var(--text)">${o.apr}</b></span>
-        <span class="badge">🔒 Bảo mật: <b style="color:var(--text)">SSL</b></span>
-      `;
-      modalBullets.innerHTML = (o.bullets || []).map(x=>`<li>${x}</li>`).join("");
-      modalCta.href = o.url;
+<script>
+  document.getElementById("y").textContent = new Date().getFullYear();
+</script>
 
-      modalBackdrop.style.display = "flex";
-      document.body.style.overflow = "hidden";
-    }
-
-    function closeOfferModal(){
-      modalBackdrop.style.display = "none";
-      document.body.style.overflow = "";
-    }
-
-    $("#modalCloseBtn").addEventListener("click", closeOfferModal);
-    $("#modalBackBtn").addEventListener("click", closeOfferModal);
-    modalBackdrop.addEventListener("click", (e)=>{ if(e.target === modalBackdrop) closeOfferModal(); });
-    window.addEventListener("keydown", (e)=>{ if(e.key === "Escape") closeOfferModal(); });
-
-    // ====== CONTACT FORM DEMO ======
-    $("#contactForm").addEventListener("submit", (e)=>{
-      e.preventDefault();
-      alert("Đã nhận yêu cầu (demo). Bạn có thể nối Formspree/Apps Script để nhận email nhé!");
-      e.target.reset();
-    });
-
-    // ====== INIT ======
-    document.getElementById("y").textContent = new Date().getFullYear();
-
-    renderOffers(OFFERS);
-
-    $("#search").addEventListener("input", filterOffers);
-    $("#category").addEventListener("change", filterOffers);
-
-    // Shortcut "/" focus search
-    window.addEventListener("keydown", (e)=>{
-      if(e.key === "/" && $("#search")){
-        e.preventDefault();
-        $("#search").focus();
-      }
-    });
-  </script>
 </body>
 </html>
